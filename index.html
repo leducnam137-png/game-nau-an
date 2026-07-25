@@ -3,60 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mô Phỏng Nấu Lẩu Chi Tiết</title>
+    <title>Mô Phỏng Nấu Lẩu Chuyên Nghiệp</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #fff3e0; text-align: center; padding: 15px; margin: 0; }
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 480px; margin: 0 auto; text-align: left; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; text-align: left; }
         .step { display: none; }
         .active { display: block; }
-        h1, h2 { color: #d84315; text-align: center; }
+        h1, h2 { color: #d84315; text-align: center; margin-top: 5px; }
         button { background-color: #ff5722; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; margin-top: 15px; width: 100%; font-weight: bold; }
         button:hover { background-color: #e64a19; }
         .section-title { font-weight: bold; color: #bf360c; margin-top: 15px; border-bottom: 2px solid #ffe0b2; padding-bottom: 5px; }
         .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
         .option { font-size: 14px; display: flex; align-items: center; }
-        input[type="checkbox"] { margin-right: 6px; transform: scale(1.2); }
+        input[type="checkbox"], input[type="radio"] { margin-right: 6px; transform: scale(1.2); }
         input[type="range"] { width: 100%; margin-top: 10px; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h1>🍲 Mô Phỏng Nấu Lẩu</h1>
+    <h1>🍲 Game Mô Phỏng Nấu Lẩu</h1>
     
-    <div id="step1" class="step active">
-        <h2>Bước 1: Chọn Nguyên Liệu</h2>
+    <div id="step0" class="step active">
+        <h2>Bước 1: Chọn Loại Lẩu Muốn Nấu</h2>
+        <div style="margin-top: 15px;">
+            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Bò Sa Tế" checked> 🐂 <b>Lẩu Bò Sa Tế</b></label>
+            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Cua Đồng"> 🦀 <b>Lẩu Cua Đồng</b></label>
+            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Thái Chua Cay"> 🍲 <b>Lẩu Thái Chua Cay</b></label>
+            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Hải Sản"> 🦐 <b>Lẩu Hải Sản</b></label>
+            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Gà Lá Giang"> 🐓 <b>Lẩu Gà Lá Giang</b></label>
+        </div>
+        <button onclick="nextStep(1)">Sang Bước 2: Chọn Nguyên Liệu ➔</button>
+    </div>
+
+    <div id="step1" class="step">
+        <h2>Bước 2: Chọn Nguyên Liệu & Đồ Nhúng</h2>
         
-        <div class="section-title">🥩 10 Loại Thịt & Hải Sản / Cá</div>
+        <div class="section-title">🥩 Thịt, Hải Sản & Đồ Nhúng</div>
         <div class="grid-container">
-            <label class="option"><input type="checkbox" class="ing" value="Thịt bò" checked> 🥩 Thịt bò</label>
+            <label class="option"><input type="checkbox" class="ing" value="Ba chỉ bò Mỹ" checked> 🥓 Ba chỉ bò Mỹ</label>
+            <label class="option"><input type="checkbox" class="ing" value="Thịt bò tươi" checked> 🥩 Thịt bò tươi</label>
+            <label class="option"><input type="checkbox" class="ing" value="Bò viên / Cá viên"> 🍢 Bò/Cá viên</label>
+            <label class="option"><input type="checkbox" class="ing" value="Lòng / Dạ dày bò"> 🥩 Lòng / Dạ dày</label>
+            <label class="option"><input type="checkbox" class="ing" value="Tôm tươi" checked> 🦐 Tôm tươi</label>
+            <label class="option"><input type="checkbox" class="ing" value="Sò huyết / Hàu tươi"> 🦪 Sò huyết / Hàu</label>
+            <label class="option"><input type="checkbox" class="ing" value="Cá hồi"> 🐟 Cá hồi</label>
+            <label class="option"><input type="checkbox" class="ing" value="Mực ống"> 🦑 Mực ống</label>
             <label class="option"><input type="checkbox" class="ing" value="Thịt heo"> 🐖 Thịt heo</label>
             <label class="option"><input type="checkbox" class="ing" value="Thịt gà"> 🐓 Thịt gà</label>
-            <label class="option"><input type="checkbox" class="ing" value="Tôm" checked> 🦐 Tôm tươi</label>
-            <label class="option"><input type="checkbox" class="ing" value="Cá hồi"> 🐟 Cá hồi</label>
-            <label class="option"><input type="checkbox" class="ing" value="Cá diêu hồng"> 🐠 Cá diêu hồng</label>
-            <label class="option"><input type="checkbox" class="ing" value="Mực"> 🦑 Mực ống</label>
-            <label class="option"><input type="checkbox" class="ing" value="Bạch tuộc"> 🐙 Bạch tuộc</label>
-            <label class="option"><input type="checkbox" class="ing" value="Cua"> 🦀 Cua biển</label>
-            <label class="option"><input type="checkbox" class="ing" value="Ngao"> 🦪 Ngao / Nghêu</label>
         </div>
 
-        <div class="section-title">🥬 10 Loại Rau & Nấm</div>
+        <div class="section-title">🥠 Đậu Phụ, Nấm & Ăn Kèm</div>
+        <div class="grid-container">
+            <label class="option"><input type="checkbox" class="ing" value="Đậu phụ tươi" checked> 🥠 Đậu phụ tươi</label>
+            <label class="option"><input type="checkbox" class="ing" value="Tàu hũ ky (Váng đậu)" checked> 🥠 Váng đậu</label>
+            <label class="option"><input type="checkbox" class="ing" value="Há cảo / Bánh xếp"> 🥟 Há cảo</label>
+            <label class="option"><input type="checkbox" class="ing" value="Trứng vịt lộn"> 🥚 Trứng vịt lộn</label>
+            <label class="option"><input type="checkbox" class="ing" value="Quẩy nóng"> 🥖 Quẩy nóng</label>
+            <label class="option"><input type="checkbox" class="ing" value="Bún / Mỳ tôm" checked> 🌾 Bún / Mỳ tôm</label>
+            <label class="option"><input type="checkbox" class="ing" value="Nấm kim针" checked> 🍄 Nấm kim针</label>
+            <label class="option"><input type="checkbox" class="ing" value="Nấm đùi gà"> 🍄 Nấm đùi gà</label>
+        </div>
+
+        <div class="section-title">🥬 Các Loại Rau</div>
         <div class="grid-container">
             <label class="option"><input type="checkbox" class="ing" value="Rau muống" checked> 🥬 Rau muống</label>
             <label class="option"><input type="checkbox" class="ing" value="Cải cúc"> 🌿 Cải cúc</label>
             <label class="option"><input type="checkbox" class="ing" value="Cải thảo"> 🥬 Cải thảo</label>
             <label class="option"><input type="checkbox" class="ing" value="Mồng tơi"> 🍃 Mồng tơi</label>
-            <label class="option"><input type="checkbox" class="ing" value="Xà lách"> 🥗 Xà lách</label>
-            <label class="option"><input type="checkbox" class="ing" value="Rau cần"> 🌿 Rau cần</label>
-            <label class="option"><input type="checkbox" class="ing" value="Cải xoong"> 🍃 Cải xoong</label>
-            <label class="option"><input type="checkbox" class="ing" value="Tần ô"> 🌿 Tần ô</label>
             <label class="option"><input type="checkbox" class="ing" value="Bắp ngô"> 🌽 Bắp ngô</label>
             <label class="option"><input type="checkbox" class="ing" value="Cà chua"> 🍅 Cà chua</label>
-            <label class="option"><input type="checkbox" class="ing" value="Nấm kim针" checked> 🍄 Nấm kim针</label>
-            <label class="option"><input type="checkbox" class="ing" value="Nấm đùi gà"> 🍄 Nấm đùi gà</label>
-            <label class="option"><input type="checkbox" class="ing" value="Nấm rơm"> 🍄 Nấm rơm</label>
-            <label class="option"><input type="checkbox" class="ing" value="Nấm hải sản"> 🍄 Nấm hải sản</label>
         </div>
 
         <div class="section-title">🧂 Gia Vị Nêm Nếm</div>
@@ -65,22 +81,22 @@
             <label class="option"><input type="checkbox" class="spice" value="Đường" checked> ⚪ Đường</label>
             <label class="option"><input type="checkbox" class="spice" value="Muối"> 🧂 Muối</label>
             <label class="option"><input type="checkbox" class="spice" value="Nước mắm" checked> 🍾 Nước mắm</label>
-            <label class="option"><input type="checkbox" class="spice" value="Sa tế"> 🌶️ Sa tế</label>
+            <label class="option"><input type="checkbox" class="spice" value="Sa tế" checked> 🌶️ Sa tế</label>
             <label class="option"><input type="checkbox" class="spice" value="Tiêu"> 🖤 Tiêu xay</label>
         </div>
 
-        <button onclick="nextStep(2)">Sang Bước 2: Thời Gian ➔</button>
+        <button onclick="nextStep(2)">Sang Bước 3: Thời Gian ➔</button>
     </div>
 
     <div id="step2" class="step">
-        <h2>Bước 2: Chọn Thời Gian Ninh</h2>
-        <p>Thời gian đun lẩu: <b id="timeVal" style="color: #d84315; font-size: 20px;">15</b> phút</p>
-        <input type="range" min="5" max="45" value="15" oninput="document.getElementById('timeVal').innerText = this.value">
-        <button onclick="nextStep(3)">Sang Bước 3: Định Lượng ➔</button>
+        <h2>Bước 3: Chọn Thời Gian Ninh</h2>
+        <p>Thời gian đun lẩu: <b id="timeVal" style="color: #d84315; font-size: 20px;">20</b> phút</p>
+        <input type="range" min="5" max="45" value="20" oninput="document.getElementById('timeVal').innerText = this.value">
+        <button onclick="nextStep(3)">Sang Bước 4: Định Lượng ➔</button>
     </div>
 
     <div id="step3" class="step">
-        <h2>Bước 3: Định Lượng Khẩu Phần</h2>
+        <h2>Bước 4: Định Lượng Khẩu Phần</h2>
         <p>Chọn số lượng người ăn:</p>
         <select id="portion" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 6px;">
             <option value="1-2 người">1 - 2 người (Nồi nhỏ)</option>
@@ -91,7 +107,7 @@
     </div>
 
     <div id="step4" class="step" style="text-align: center;">
-        <h2>🎉 Bước 4: Hoàn Thành!</h2>
+        <h2>🎉 Bữa Lẩu Đã Hoàn Thành!</h2>
         <div style="font-size: 60px;">🍲✨</div>
         <div id="resultBox" style="background: #e8f5e9; padding: 15px; border-radius: 8px; color: #1b5e20; text-align: left; line-height: 1.6;"></div>
         <button onclick="resetGame()" style="background-color: #4caf50;">🔄 Nấu Nồi Lẩu Khác</button>
@@ -106,6 +122,8 @@
     }
 
     function finishCooking() {
+        let hotpotType = document.querySelector('input[name="hotpotType"]:checked').value;
+
         let selectedIngs = [];
         document.querySelectorAll('.ing:checked').forEach(el => selectedIngs.push(el.value));
         
@@ -115,15 +133,16 @@
         let time = document.getElementById('timeVal').innerText;
         let portion = document.getElementById('portion').value;
 
-        let ingText = selectedIngs.length > 0 ? selectedIngs.join(', ') : 'Không chọn nguyên liệu';
+        let ingText = selectedIngs.length > 0 ? selectedIngs.join(', ') : 'Không chọn đồ nhúng';
         let spiceText = selectedSpices.length > 0 ? selectedSpices.join(', ') : 'Không nêm gia vị';
 
         let resultHTML = `
-            <b>Khẩu phần:</b> ${portion}<br>
-            <b>Thời gian ninh:</b> ${time} phút<br>
-            <b>Nguyên liệu đã chọn:</b> ${ingText}<br>
-            <b>Gia vị nêm:</b> ${spiceText}<br><br>
-            👉 <b>Đánh giá:</b> Nồi lẩu thơm ngon bốc khói nghi ngút, vị đậm đà vừa vặn! Chúc cả nhà ngon miệng! 😋
+            🥘 <b>Món ăn:</b> <span style="color:#d84315;">${hotpotType}</span><br>
+            👥 <b>Khẩu phần:</b> ${portion}<br>
+            ⏱️ <b>Thời gian ninh:</b> ${time} phút<br>
+            🥩 <b>Đồ nhúng đã chọn:</b> ${ingText}<br>
+            🧂 <b>Gia vị nêm:</b> ${spiceText}<br><br>
+            👉 <b>Đánh giá:</b> Nồi <b>${hotpotType}</b> nóng hổi bốc khói ngút ngàn, nước dùng vừa vặn, đồ nhúng phong phú! Chúc cả nhà ngon miệng! 😋
         `;
         
         document.getElementById('resultBox').innerHTML = resultHTML;
@@ -131,9 +150,10 @@
     }
 
     function resetGame() {
-        nextStep(1);
+        nextStep(0);
     }
 </script>
 
 </body>
-</html>
+    </html>
+    
