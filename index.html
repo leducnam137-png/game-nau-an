@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mô Phỏng Nấu Lẩu Chuyên Nghiệp</title>
+    <title>Mô Phỏng Nấu Lẩu - 10 Món Lẩu</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #fff3e0; text-align: center; padding: 15px; margin: 0; }
         .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; text-align: left; }
@@ -13,9 +13,13 @@
         button { background-color: #ff5722; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; margin-top: 15px; width: 100%; font-weight: bold; }
         button:hover { background-color: #e64a19; }
         .section-title { font-weight: bold; color: #bf360c; margin-top: 15px; border-bottom: 2px solid #ffe0b2; padding-bottom: 5px; }
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .hotpot-option { background: #fff8e1; border: 2px solid #ffe0b2; border-radius: 8px; padding: 10px; cursor: pointer; text-align: center; font-weight: bold; font-size: 15px; color: #3E2723; }
+        .hotpot-option:hover { background: #ffe0b2; }
+        .hotpot-option input { display: none; }
+        .hotpot-option.selected { border-color: #ff5722; background: #ffcc80; color: #b71c1C; }
         .option { font-size: 14px; display: flex; align-items: center; }
-        input[type="checkbox"], input[type="radio"] { margin-right: 6px; transform: scale(1.2); }
+        input[type="checkbox"] { margin-right: 6px; transform: scale(1.2); }
         input[type="range"] { width: 100%; margin-top: 10px; }
     </style>
 </head>
@@ -25,15 +29,23 @@
     <h1>🍲 Game Mô Phỏng Nấu Lẩu</h1>
     
     <div id="step0" class="step active">
-        <h2>Bước 1: Chọn Loại Lẩu Muốn Nấu</h2>
-        <div style="margin-top: 15px;">
-            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Bò Sa Tế" checked> 🐂 <b>Lẩu Bò Sa Tế</b></label>
-            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Cua Đồng"> 🦀 <b>Lẩu Cua Đồng</b></label>
-            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Thái Chua Cay"> 🍲 <b>Lẩu Thái Chua Cay</b></label>
-            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Hải Sản"> 🦐 <b>Lẩu Hải Sản</b></label>
-            <label class="option" style="margin-bottom: 12px;"><input type="radio" name="hotpotType" value="Lẩu Gà Lá Giang"> 🐓 <b>Lẩu Gà Lá Giang</b></label>
+        <h2>Bước 1: Chọn 1 trong 10 Món Lẩu</h2>
+        <p style="text-align: center; color: #757575; margin-top: -5px;">(Bấm chọn món lẩu bạn muốn nấu)</p>
+        
+        <div class="grid-container" id="hotpotGrid">
+            <div class="hotpot-option selected" onclick="selectHotpot(this, 'Lẩu Bò Sa Tế')">🐂 Lẩu Bò Sa Tế</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Cua Đồng')">🦀 Lẩu Cua Đồng</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Thái Chua Cay')">🍲 Lẩu Thái Chua Cay</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Hải Sản')">🦐 Lẩu Hải Sản</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Gà Lá Giang')">🐓 Lẩu Gà Lá Giang</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Cá Măng Chua')">🐟 Lẩu Cá Măng Chua</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Vịt Om Sấu')">🦆 Lẩu Vịt Om Sấu</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Dê Thuốc Bắc')">🐐 Lẩu Dê Thuốc Bắc</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Ếch Măng Chua')">🐸 Lẩu Ếch Măng Chua</div>
+            <div class="hotpot-option" onclick="selectHotpot(this, 'Lẩu Nấm Thần Chay')">🥬 Lẩu Nấm Thần Chay</div>
         </div>
-        <button onclick="nextStep(1)">Sang Bước 2: Chọn Nguyên Liệu ➔</button>
+
+        <button onclick="nextStep(1)">Sang Bước 2: Nguyên Liệu & Đồ Nhúng ➔</button>
     </div>
 
     <div id="step1" class="step">
@@ -115,6 +127,14 @@
 </div>
 
 <script>
+    let chosenHotpot = "Lẩu Bò Sa Tế";
+
+    function selectHotpot(element, name) {
+        document.querySelectorAll('.hotpot-option').forEach(el => el.classList.remove('selected'));
+        element.classList.add('selected');
+        chosenHotpot = name;
+    }
+
     function nextStep(stepNum) {
         document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
         document.getElementById('step' + stepNum).classList.add('active');
@@ -122,8 +142,6 @@
     }
 
     function finishCooking() {
-        let hotpotType = document.querySelector('input[name="hotpotType"]:checked').value;
-
         let selectedIngs = [];
         document.querySelectorAll('.ing:checked').forEach(el => selectedIngs.push(el.value));
         
@@ -137,12 +155,12 @@
         let spiceText = selectedSpices.length > 0 ? selectedSpices.join(', ') : 'Không nêm gia vị';
 
         let resultHTML = `
-            🥘 <b>Món ăn:</b> <span style="color:#d84315;">${hotpotType}</span><br>
+            🥘 <b>Món ăn chọn nấu:</b> <span style="color:#d84315; font-size:18px;">${chosenHotpot}</span><br>
             👥 <b>Khẩu phần:</b> ${portion}<br>
             ⏱️ <b>Thời gian ninh:</b> ${time} phút<br>
             🥩 <b>Đồ nhúng đã chọn:</b> ${ingText}<br>
             🧂 <b>Gia vị nêm:</b> ${spiceText}<br><br>
-            👉 <b>Đánh giá:</b> Nồi <b>${hotpotType}</b> nóng hổi bốc khói ngút ngàn, nước dùng vừa vặn, đồ nhúng phong phú! Chúc cả nhà ngon miệng! 😋
+            👉 <b>Đánh giá:</b> Nồi <b>${chosenHotpot}</b> thơm phức bốc khói ngút ngàn, nước dùng vừa vặn, đồ nhúng phong phú! Chúc cả nhà ngon miệng! 😋
         `;
         
         document.getElementById('resultBox').innerHTML = resultHTML;
@@ -155,5 +173,5 @@
 </script>
 
 </body>
-    </html>
-    
+</html>                                   </html>
+                                      
